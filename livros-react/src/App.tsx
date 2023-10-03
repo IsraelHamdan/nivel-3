@@ -1,7 +1,6 @@
-import React from "react";
-import { LivrosLista } from "./Components/LivrosDados";
+import LivrosLista from "./components/LivrosLista";
 
-function App() {
+export default function App() {
   // console.log(LivrosLista);
   return (
     <div className="App">
@@ -9,5 +8,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
