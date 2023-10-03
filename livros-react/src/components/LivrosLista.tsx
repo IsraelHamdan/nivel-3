@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ControleLivros from "../controle/ControleLivros";
 import ControleEditora from "../controle/ControleEditora";
+import Livro from "../modelo/Livro";
 
 const controleLivros = new ControleLivros();
 const controleEditora = new ControleEditora();
 
 // componente auxiliar
-const LinhaLivro = (props) => {
+const LinhaLivro = (props: {
+  livro: Livro;
+  excluir: Function;
+  getNomeEditora?: (codEditora: number) => string;
+}) => {
   const { livro, excluir } = props;
   const nomeEditora = controleEditora.getNomeEditora;
 
@@ -22,17 +27,17 @@ const LinhaLivro = (props) => {
       <td>{nomeEditora(livro.codEditora)}</td>
       <td>
         <ul>
-          {livro.autores.map((autor, index) => (
-            <li key={index}>{autor}</li>
-          ))}
+          {livro.autores.map((autor: string, index: number) => {
+            <li key={index}>{autor}</li>;
+          })}
         </ul>
       </td>
     </tr>
   );
 };
 
-const LivrosLista = () => {
-  const [livros, setLivros] = useState([]);
+export const LivrosLista = () => {
+  const [livro, setLivros] = useState<Array<Livro>>([]);
   const [carregado, setCarregado] = useState(false);
 
   useEffect(() => {
@@ -40,7 +45,7 @@ const LivrosLista = () => {
     setCarregado(true);
   }, [carregado]);
 
-  const excluir = (codigo) => {
+  const excluir = (codigo: number) => {
     controleLivros.excluir(codigo);
     setCarregado(false);
   };
@@ -58,22 +63,15 @@ const LivrosLista = () => {
           </tr>
         </thead>
         <tbody>
-          {livros.map((livro) => {
-            console.log("Código do livro:", livro.codigo);
-            console.log("Código da editora:", livro.codEditora);
-            return (
-              <LinhaLivro
-                key={livro.codigo}
-                livro={livro}
-                excluir={excluir}
-                getNomeEditora={controleEditora.getNomeEditora}
-              />
-            );
-          })}
+          {livros.map((livro) => (
+            <LinhaLivro
+              key={livro.codigo}
+              livro={livro}
+              getNomeEditora={controleEditora.getNomeEditora}
+            />
+          ))}
         </tbody>
       </table>
     </div>
   );
 };
-
-export default LivrosLista;
