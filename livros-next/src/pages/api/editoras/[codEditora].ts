@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import ControleEditora from "@/classes/controle/ControleEditora";
+import ControleEditora from "../../../classes/controle/ControleEditora";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const controleEditora = new ControleEditora();
