@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>Loja Next</title>
         <meta name="description" content="Projeto em nextjs" />

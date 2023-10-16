@@ -13,7 +13,11 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
           error: "Código invalido",
         });
       } else {
-        const livroExcluido = controleLivro.excluir(codigo);
+        // const livroExcluido = controleLivro.excluir(codigo);
+        console.log(codigo);
+        res.status(200).json({
+          message: `Livro excluido!`,
+        });
       }
     } catch (error) {
       res.status(500).json({

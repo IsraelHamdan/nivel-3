@@ -3,9 +3,10 @@ import ControleLivros from "@/classes/controles/ControleLivros";
 import Livro from "@/classes/modelos/Livro";
 
 const controleEditora = new ControleEditora();
+
 interface LinhaLivroProps {
   livro: Livro;
-  excluir: (codig: string) => void;
+  excluir: (codigo: string) => void;
 }
 
 const LinhaLivro = (props: LinhaLivroProps) => {
@@ -39,3 +40,5 @@ const LinhaLivro = (props: LinhaLivroProps) => {
     </tr>
   );
 };
+
+export default LinhaLivro;
