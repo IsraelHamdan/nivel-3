@@ -46,7 +46,7 @@ const LivroLista = () => {
       <Head />
       <main>
         <h1 className={styles.maintitle}>Livros disponiveis</h1>
-        <table>
+        <table className="table">
           {livros.map((livro: Livro) => (
             <LinhaLivro
               key={livro.codigo}

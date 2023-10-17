@@ -9,6 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="../../public/next.svg" />
       </Head>
       <Component {...pageProps} />
     </>
