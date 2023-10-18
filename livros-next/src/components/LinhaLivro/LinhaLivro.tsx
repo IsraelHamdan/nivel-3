@@ -30,12 +30,14 @@ const LinhaLivro = (props: LinhaLivroProps) => {
         </ul>
       </td>
       <td className="flex-row">
-        {nomeEditora}
-        <button
-          className="btn btn-danger btn-sm"
-          onClick={() => props.excluir(props.livro.codigo.toString())}>
-          Excluir
-        </button>
+        <div>
+          <div> {nomeEditora}</div>
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={() => props.excluir(props.livro.codigo.toString())}>
+            Excluir
+          </button>
+        </div>
       </td>
     </tr>
   );

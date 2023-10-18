@@ -15,6 +15,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         // const livroExcluido = controleLivro.excluir(codigo);
         console.log(codigo);
+        controleLivro.excluir(codigo);
         res.status(200).json({
           message: `Livro excluido!`,
         });

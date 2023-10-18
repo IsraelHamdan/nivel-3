@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/Home.module.css";
 import Head from "@/components/Head/Head";
 import LinhaLivro from "@/components/LinhaLivro/LinhaLivro";
+import Editora from "../classes/modelos/Editora";
 
 const baseURL: string = "http://localhost:3000/api/livros";
 
@@ -11,6 +12,7 @@ interface Livro {
   titulo: string;
   resumo: string;
   autores: string[];
+  editora: string;
 }
 
 const obter = async () => {
@@ -38,22 +40,36 @@ const LivroLista = () => {
 
   const excluir = async (codigo: number) => {
     const sucesso = await excluirLivro(codigo);
-    sucesso ? setCarregado(false) : setCarregado(true);
+    sucesso ? setCarregado(false) : console.log(sucesso, codigo);
   };
 
   return (
     <div className={styles.container}>
-      <Head />
-      <main>
-        <h1 className={styles.maintitle}>Livros disponiveis</h1>
-        <table className="table">
-          {livros.map((livro: Livro) => (
-            <LinhaLivro
-              key={livro.codigo}
-              livro={livro}
-              excluir={() => excluir(livro.codigo)}
-            />
-          ))}
+      {/* <div className="flex-row">
+        <h1 className={styles.maintitle}>Livros disponíveis</h1>
+      </div> */}
+      <header>
+        <Head />
+      </header>
+      <main className="flex-row">
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Resumo</th>
+              <th scope="col">Autores</th>
+              <th scope="col">Editora</th>
+            </tr>
+          </thead>
+          <tbody>
+            {livros.map((livro: Livro) => (
+              <LinhaLivro
+                key={livro.codigo}
+                livro={livro}
+                excluir={() => excluir(livro.codigo)}
+              />
+            ))}
+          </tbody>
         </table>
       </main>
     </div>
