@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+
 import styles from "@/styles/Home.module.css";
+
 import Head from "@/components/Head/Head";
 import LinhaLivro from "@/components/LinhaLivro/LinhaLivro";
-import Editora from "../classes/modelos/Editora";
 
 const baseURL: string = "http://localhost:3000/api/livros";
 

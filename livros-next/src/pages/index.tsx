@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Menu from "@/components/Menu/Menu";
 import styles from "@/styles/Home.module.css";
+import LivroCard from "@/components/LivroCard/LivroCard";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       </header>
       <main className={styles.main}>
         <h1 className={styles.title}>Página Inicial</h1>
+        <LivroCard />
       </main>
     </div>
   );
