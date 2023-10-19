@@ -45,35 +45,37 @@ const LivroLista = () => {
   };
 
   return (
-    <div className={styles.container}>
-      {/* <div className="flex-row">
-        <h1 className={styles.maintitle}>Livros disponíveis</h1>
-      </div> */}
+    <>
       <header>
         <Head />
       </header>
-      <main className="flex-row">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Título</th>
-              <th scope="col">Resumo</th>
-              <th scope="col">Autores</th>
-              <th scope="col">Editora</th>
-            </tr>
-          </thead>
-          <tbody>
-            {livros.map((livro: Livro) => (
-              <LinhaLivro
-                key={livro.codigo}
-                livro={livro}
-                excluir={() => excluir(livro.codigo)}
-              />
-            ))}
-          </tbody>
-        </table>
-      </main>
-    </div>
+      <div>
+        <div className="flex-row">
+          <h1 className="h1">Livros disponíveis</h1>
+        </div>
+        <main className="flex-row">
+          <table className="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Resumo</th>
+                <th scope="col">Autores</th>
+                <th scope="col">Editora</th>
+              </tr>
+            </thead>
+            <tbody>
+              {livros.map((livro: Livro) => (
+                <LinhaLivro
+                  key={livro.codigo}
+                  livro={livro}
+                  excluir={() => excluir(livro.codigo)}
+                />
+              ))}
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </>
   );
 };
 

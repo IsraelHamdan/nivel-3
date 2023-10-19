@@ -38,20 +38,14 @@ const LivroDados: NextPage = () => {
   };
 
   const incluirLivro = async (livro: Livro) => {
-    try {
-      const res = await fetch(baseURL, {
-        method: "POST",
-        headers: {
-          "Content-type": "aplication/json",
-        },
-        body: JSON.stringify(livro),
-      });
-
-      if (res.ok) {
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    const res = await fetch(baseURL, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(livro),
+    });
+    return res.ok;
   };
 
   const incluir = async (evento: React.FormEvent<HTMLFormElement>) => {
